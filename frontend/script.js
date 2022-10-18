@@ -30,9 +30,10 @@ let request = async () => {
             let pizzaImg = document.createElement("img")
             pizzaImg.id = "pizza_img" + (i+1);
 
-            let pizzaPath = path.join(__dirname, '..', '', 'karma.conf.js')
+            // let pizzaPath = path.join(__dirname, '..', '', 'pizza.js')
 
-            pizzaImg.src = `${pizzaPath}` 
+            pizzaImg.src = "http://localhost:3000/api/pizza/images/"
+            console.log(typeof pizza[i].picture)
             
             pizzaRight.append(pizzaImg);
 

@@ -8,10 +8,10 @@ app.use(cors())
 app.use(express.json())
 
 app.use(express.static('backend'))
+// app.use('/api', express.static(path.join(__dirname, 'backend')))
 
 app.get('/api/pizza', (req, res) => {
 
-    //const searchParam = req.query.filter
 
     const data = fileSystem.readFileSync(__dirname + '/api/pizza/pizza.json')
     const pizzas = JSON.parse(data)
