@@ -1,7 +1,8 @@
-[{
-    "id" : 1,
+[
+  {
+    "id": 1,
     "orderDate": "2022-10-17",
-    "pizza": {"id" : 1, "name": "Margarita", "amount": 3},
+    "pizza": { "id": 1, "name": "Margarita", "amount": 3 },
     "name": "Béla",
     "street": "Bajcsy",
     "houseNumber": "8",
@@ -11,9 +12,9 @@
     "email": "pizzaforever2@gmail.com"
   },
   {
-    "id" : 2,
+    "id": 2,
     "orderDate": "2022-10-17",
-    "pizza": {"id" : 1, "name": "Margarita", "amount": 3},
+    "pizza": { "id": 1, "name": "Margarita", "amount": 3 },
     "name": "Józsi",
     "street": "Bajcsy",
     "houseNumber": "8",
@@ -21,5 +22,53 @@
     "zipCode": "1057",
     "mobile": "+36308888888",
     "email": "pizzaforever@gmail.com"
+  },
+  {
+    "id": 3,
+    "orderDate": "2022-10-18",
+    "orderedItems": { "id": 1, "name": "Margherita", "amount": 4 },
+    "name": "Everyone",
+    "street": "Hősök tere",
+    "houseNumber": 9,
+    "city": "Budapest",
+    "zipCode": "1065",
+    "mobile": "+36308888888",
+    "email": "pizza@gmail.com"
+  },
+  {
+    "id": 4,
+    "orderDate": "2022-10-18",
+    "orderedItems": { "id": 1, "name": "Margherita", "amount": 4 },
+    "name": "Everyone",
+    "street": "Hősök tere",
+    "houseNumber": 9,
+    "city": "Budapest",
+    "zipCode": "1065",
+    "mobile": "+36308888888",
+    "email": "pizza@gmail.com"
+  },
+  {
+    "id": 5,
+    "orderDate": "2022-10-18",
+    "orderedItems": { "id": 1, "name": "Margherita", "amount": 4 },
+    "name": "Everyone",
+    "street": "Hősök tere",
+    "houseNumber": 9,
+    "city": "Budapest",
+    "zipCode": "1065",
+    "mobile": "+36308888888",
+    "email": "pizza@gmail.com"
+  },
+  {
+    "id": 6,
+    "orderDate": "2022-10-18",
+    "orderedItems": { "id": 1, "name": "Margherita", "amount": 4 },
+    "name": "Everyone",
+    "street": "Hősök tere",
+    "houseNumber": 9,
+    "city": "Budapest",
+    "zipCode": "1065",
+    "mobile": "+36308888888",
+    "email": "pizza@gmail.com"
   }
 ]
