@@ -11,7 +11,7 @@ app.use(express.static('backend'))
 
 app.get('/api/pizza', (req, res) => {
 
-    const searchParam = req.query.filter
+    //const searchParam = req.query.filter
 
     const data = fileSystem.readFileSync(__dirname + '/api/pizza/pizza.json')
     const pizzas = JSON.parse(data)
@@ -25,7 +25,7 @@ app.post('/api/orders', (req, res) => {
     const lastOrder = orders[orders.length-1]
       
     const orderDate = req.body.orderDate
-    const orderedItems = req.body.orderedItems
+    const orderedItems = req.body.pizza
     const name = req.body.name
     const street = req.body.street
     const houseNumber = req.body.houseNumber
