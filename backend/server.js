@@ -7,8 +7,8 @@ const port = 3000
 app.use(cors())
 app.use(express.json())
 
-app.use(express.static('backend'))
-// app.use('/api', express.static(path.join(__dirname, 'backend')))
+
+app.use("/images", express.static(__dirname + '/api/pizza/images'));
 
 app.get('/api/pizza', (req, res) => {
 

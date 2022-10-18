@@ -32,8 +32,8 @@ let request = async () => {
 
             // let pizzaPath = path.join(__dirname, '..', '', 'pizza.js')
 
-            pizzaImg.src = "http://localhost:3000/api/pizza/images/"
-            console.log(typeof pizza[i].picture)
+            pizzaImg.src = `http://127.0.0.1:3000${pizza[i].picture}`
+            console.log(pizza[i].picture)
             
             pizzaRight.append(pizzaImg);
 
