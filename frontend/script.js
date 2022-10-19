@@ -18,7 +18,7 @@ let request = async () => {
 
             
             let pizzaBox = document.createElement("div")
-            pizzaBox.id = "pizza_" + (i+1)
+            pizzaBox.className = "pizzabox" 
             pizzaContainer.append(pizzaBox); 
             let pizzaLeft = document.createElement("div")
             pizzaLeft.id = "pizza_left"
@@ -28,7 +28,7 @@ let request = async () => {
             pizzaBox.append(pizzaRight)
 
             let pizzaImg = document.createElement("img")
-            pizzaImg.id = "pizza_img" + (i+1);
+            pizzaImg.className = "pizza_img" ;
 
             // let pizzaPath = path.join(__dirname, '..', '', 'pizza.js')
 
@@ -37,10 +37,12 @@ let request = async () => {
             
             pizzaRight.append(pizzaImg);
 
-            let pizzaName = document.createElement("h3")
+            let pizzaName = document.createElement("h1")
             pizzaLeft.append(pizzaName);
-            let pizzaToppings = document.createElement("h5")
+            pizzaName.innerText = pizza[i].name
+            let pizzaToppings = document.createElement("h3")
             pizzaLeft.append(pizzaToppings) 
+            pizzaToppings.innerText = pizza[i].toppings
             
             console.log("cica");
         }
@@ -132,4 +134,21 @@ request ();
 
 const ourButton = document.getElementById("orderButton")
 ourButton.addEventListener("click", getOrderInput);
+
+
    
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+  }
+  
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }
+
+  function openBusket() {
+    document.getElementById("myBusket").style.width = "100%";
+  }
+  
+  function closeBusket() {
+    document.getElementById("myBusket").style.width = "0%";
+  }
