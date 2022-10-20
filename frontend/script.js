@@ -10,6 +10,10 @@ const emailInput = document.getElementById("email");
 const appState = {
   pizza: [],
 };
+
+
+
+console
 const createButtons = () => {
   for (let i = 0; i < appState.pizza.length; i++) {
     let pizzaButton = document.createElement("button");
@@ -63,11 +67,13 @@ const request = async () => {
   const response = await fetch(`http://localhost:3000/api/pizza`);
   const data = await response.json();
   appState.pizza = data;
-  pizzaLoader(1);
-  createButtons();
 };
 
-request();
+const start = async () => {
+  await request();
+  pizzaLoader(1);
+  createButtons();
+}
 
 const postOrder = async (
   date,
@@ -195,6 +201,8 @@ const getOrderInput = async () => {
     orderEmail
   );
 };
+
+start()
 
 const ourButton = document.getElementById("orderButton");
 ourButton.addEventListener("click", getOrderInput);
