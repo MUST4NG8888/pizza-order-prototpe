@@ -16,6 +16,7 @@ const createButtons = () => {
     pizzaButtonDiv.append(pizzaButton);
     pizzaButton.className = `pizzabutton`;
     pizzaButton.id = `circle${i}`;
+    pizzaButton.innerText = "PIZZA"
   }
 };
 

@@ -320,36 +320,37 @@ header {
 #pizzaButtonDiv {
   position: relative;
   top: 415px;
-  left: 550px
+  left: 550px;
 }
 
 .pizzabutton {
   position: fixed;
   background-color: #1b9128;
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
   border: none;
+  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.31);
 }
 
 #circle0 {
-  transform: rotate(120deg) translate(550px);
+  transform: rotate(-120deg) translate(550px);
 }
 #circle1 {
-  transform: rotate(140deg) translate(550px);
+  transform: rotate(-140deg) translate(550px);
 }
 #circle2 {
-  transform: rotate(160deg) translate(550px);
+  transform: rotate(-160deg) translate(550px);
 }
 #circle3 {
-  transform: rotate(180deg) translate(550px);
+  transform: rotate(-180deg) translate(550px);
 }
 #circle4 {
-  transform: rotate(200deg) translate(550px);
+  transform: rotate(-200deg) translate(550px);
 }
 #circle5 {
-  transform: rotate(220deg) translate(550px);
+  transform: rotate(-220deg) translate(550px);
 }
 #circle6 {
-  transform: rotate(240deg) translate(550px);
+  transform: rotate(-240deg) translate(550px);
 }
