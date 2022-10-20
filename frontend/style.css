@@ -354,3 +354,8 @@ header {
 #circle6 {
   transform: rotate(-240deg) translate(550px);
 }
+
+span {
+  display: inline-block;
+  transform: rotate(-180deg);
+}

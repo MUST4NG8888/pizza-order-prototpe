@@ -6,11 +6,12 @@ const zipCodeInput = document.getElementById("zipCode");
 const mobileInput = document.getElementById("mobile");
 const emailInput = document.getElementById("email");
 
+let pizzaArray = [];
+
 
 const appState = {
   pizza: [],
 };
-
 
 
 console
@@ -20,9 +21,39 @@ const createButtons = () => {
     pizzaButtonDiv.append(pizzaButton);
     pizzaButton.className = `pizzabutton`;
     pizzaButton.id = `circle${i}`;
-    pizzaButton.innerText = "PIZZA"
+    let span = document.createElement("span")
+    pizzaButton.append(span)
+    span.innerText = "PIZZA"
+    
+    let gomb = document.getElementById(`circle${i}`)
+    gomb.addEventListener("click", irdKi = () => {
+      let pizzaName = document.getElementById("pizza_name")
+      let pizzaTopping = document.getElementById("pizza_toppings")
+      let pizzaImg = document.getElementById("the_only_pizza")
+      if(gomb.id == `circle${i}`){
+        pizzaName.innerText = appState.pizza[i].name;
+        let text = "";
+        for(let j = 0; j < appState.pizza[i].toppings.length; j++){
+          text += appState.pizza[i].toppings[j] + ", ";
+        }
+
+        pizzaTopping.innerText = "";
+        pizzaTopping.innerHTML = text;
+        console.log(text)
+        console.log(appState.pizza[i].toppings)
+
+        
+
+        let source = `http://127.0.0.1:3000${appState.pizza[i].picture}`;
+        console.log(source)
+
+        pizzaImg.src = source;
+      }
+    });
   }
 };
+
+
 
 const pizzaLoader = (a) => {
   let pizzaContainer = document.getElementById("pizzaContainer");
@@ -42,26 +73,53 @@ const pizzaLoader = (a) => {
 
   let pizzaImg = document.createElement("img");
   pizzaImg.className = "pizza_img";
+  pizzaImg.id = "the_only_pizza";
   console.log(appState);
   pizzaImg.src = `http://127.0.0.1:3000${appState.pizza[a].picture}`;
 
   pizzaRight.append(pizzaImg);
 
   let pizzaName = document.createElement("h1");
+  pizzaName.id = "pizza_name"
   pizzaLeft.append(pizzaName);
   pizzaName.innerText = appState.pizza[a].name;
   let pizzaToppings = document.createElement("h3");
+  pizzaToppings.id = "pizza_toppings"
   pizzaLeft.append(pizzaToppings);
   pizzaToppings.innerText = appState.pizza[a].toppings;
   const amountInput = document.createElement("input");
+  amountInput.id = "amount_input"
   amountInput.type = "number";
   amountInput.placeholder = "Amount";
   pizzaLeft.append(amountInput);
   const mainButton = document.createElement("button");
   pizzaLeft.append(mainButton);
-  mainButton.value = 0;
+  mainButton.id = "main_button"
   mainButton.innerText = "Add to Basket";
+  document.getElementById("main_button").addEventListener("click", fillBasket = () => {
+    if(document.getElementById("amount_input").value == 0 || document.getElementById("amount_input").value === undefined){
+      alert("Nem jó értéket adtál meg!")
+    } else {
+      let rendeles = document.getElementById("pizza_name").innerText + ", darabszám: " + document.getElementById("amount_input").value + "\n"
+      document.getElementById("orders").innerHTML += rendeles;
+      document.getElementById("orders").innerHTML += `<br>`
+
+      let pizza = {
+        "name" : document.getElementById("pizza_name").innerText,
+        "amount" : document.getElementById("amount_input").value
+      }
+
+      pizzaArray.push(pizza);
+
+    }
+  })
 };
+
+const createPizzaDesc = (a) => {
+  document.getElementsByClassName("pizza_img").src = `http://127.0.0.1:3000${appState.pizza[a].picture}`;
+  document.getElementsByTagName("h1").innerHTML = appState.pizza[a].name;
+  document.getElementsByTagName("h3").innerHTML = appState.pizza[a].toppings; 
+}
 
 const request = async () => {
   const response = await fetch(`http://localhost:3000/api/pizza`);
@@ -71,7 +129,7 @@ const request = async () => {
 
 const start = async () => {
   await request();
-  pizzaLoader(1);
+  pizzaLoader(0);
   createButtons();
 }
 
@@ -150,23 +208,7 @@ const makeOrder = async (
 const getOrderInput = async () => {
   let orderName = nameInput.value;
 
-  let chosenPizza = [
-    {
-      id: 4,
-      name: "Margareta",
-      amount: 2,
-    },
-    {
-      id: 5,
-      name: "Margareta",
-      amount: 24,
-    },
-    {
-      id: 64,
-      name: "Margareta",
-      amount: 23,
-    },
-  ];
+  let chosenPizza = pizzaArray;
 
   let orderStreet = streetInput.value;
   let orderHouseNumber = houseNumberInput.value;
@@ -236,3 +278,7 @@ document
 //   a = e.target.value
 //   pizzaLoader(a);
 // });
+
+
+
+
