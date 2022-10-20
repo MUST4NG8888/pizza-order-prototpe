@@ -24,30 +24,33 @@ const createButtons = () => {
     let span = document.createElement("span")
     pizzaButton.append(span)
     span.innerText = "PIZZA"
+   
     
     let gomb = document.getElementById(`circle${i}`)
     gomb.addEventListener("click", irdKi = () => {
       let pizzaName = document.getElementById("pizza_name")
       let pizzaTopping = document.getElementById("pizza_toppings")
-      let pizzaImg = document.getElementById("the_only_pizza")
+      let pizzaImg = document.getElementById('pizzaimg')
       if(gomb.id == `circle${i}`){
         pizzaName.innerText = appState.pizza[i].name;
-        let text = "";
-        for(let j = 0; j < appState.pizza[i].toppings.length; j++){
-          text += appState.pizza[i].toppings[j] + ", ";
-        }
+        let text = appState.pizza[i].toppings.toString()
+
 
         pizzaTopping.innerText = "";
         pizzaTopping.innerHTML = text;
         console.log(text)
         console.log(appState.pizza[i].toppings)
-
-        
+    
 
         let source = `http://127.0.0.1:3000${appState.pizza[i].picture}`;
         console.log(source)
 
         pizzaImg.src = source;
+        pizzaImg.style.animation ="loadingPizza 2s ease-in-out";
+        pizzaImg.style.animationFillMode = "forwards"
+        setTimeout(animation = () => {
+          pizzaImg.style.animation ="";
+           } , 2000)
       }
     });
   }
@@ -73,11 +76,12 @@ const pizzaLoader = (a) => {
 
   let pizzaImg = document.createElement("img");
   pizzaImg.className = "pizza_img";
-  pizzaImg.id = "the_only_pizza";
   console.log(appState);
   pizzaImg.src = `http://127.0.0.1:3000${appState.pizza[a].picture}`;
-
+  pizzaImg.id = 'pizzaimg'
   pizzaRight.append(pizzaImg);
+  pizzaImg.style.animation ="loadingPizza 2s ease-in-out";
+  pizzaImg.style.animationFillMode = "forwards"
 
   let pizzaName = document.createElement("h1");
   pizzaName.id = "pizza_name"
@@ -110,10 +114,12 @@ const pizzaLoader = (a) => {
       }
 
       pizzaArray.push(pizza);
+      document.getElementById("amount_input").value = ""
 
     }
   })
 };
+
 
 const createPizzaDesc = (a) => {
   document.getElementsByClassName("pizza_img").src = `http://127.0.0.1:3000${appState.pizza[a].picture}`;
@@ -274,10 +280,7 @@ document
   .getElementById("closebtnBasket")
   .addEventListener("click", closeBasket);
 
-// document.getElementById('0').addEventListener("click", function (e) {
-//   a = e.target.value
-//   pizzaLoader(a);
-// });
+
 
 
 

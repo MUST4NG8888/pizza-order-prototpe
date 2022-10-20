@@ -20,14 +20,20 @@ app.post("/api/orders", (req, res) => {
   const data = fileSystem.readFileSync(__dirname + "/api/orders/orders1.json");
   const orders = JSON.parse(data);
   const files = fileSystem.readdirSync(__dirname + "/api/orders/");
-  console.log(files);
-
+  console.log(files.sort(function(a, b){
+    // ASC  -> a.length - b.length
+    // DESC -> b.length - a.length
+    return a.length - b.length;
+  }))
   const currentOrder = [];
-  // const lastOrder = orders[orders.length-1]
   const lastOrder = files[files.length - 1];
   const r = /\d+/g;
-  const lastOrderNumberStr = lastOrder.match(r);
-  const lastOrderNumber = Number(lastOrderNumberStr[0]);
+  const lastOrderNumberArr = lastOrder.match(r);
+  console.log(lastOrderNumberArr)
+ 
+
+  const lastOrderNumber = Number(lastOrderNumberArr[0]);
+  console.log(lastOrderNumber)
 
   const orderDate = req.body.orderDate;
   const orderedItems = req.body.pizza;

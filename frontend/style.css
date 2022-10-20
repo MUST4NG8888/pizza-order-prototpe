@@ -326,36 +326,83 @@ header {
 .pizzabutton {
   position: fixed;
   background-color: #1b9128;
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   border: none;
   box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.31);
+  
 }
+
 
 #circle0 {
   transform: rotate(-120deg) translate(550px);
+  transition: 0.4s ease-in-out;
+}
+#circle0:hover {
+  transform: rotate(-120deg) translate(550px) scale(1.2);
 }
 #circle1 {
   transform: rotate(-140deg) translate(550px);
+  transition: 0.4s ease-in-out;
 }
+#circle1:hover {
+  transform: rotate(-140deg) translate(550px) scale(1.2);
+}
+
 #circle2 {
   transform: rotate(-160deg) translate(550px);
+  transition: 0.4s ease-in-out;
+}
+#circle2:hover {
+  transform: rotate(-160deg) translate(550px) scale(1.2);
 }
 #circle3 {
   transform: rotate(-180deg) translate(550px);
+  transition: 0.4s ease-in-out;
+}
+#circle3:hover {
+  transform: rotate(-180deg) translate(550px) scale(1.2);
 }
 #circle4 {
   transform: rotate(-200deg) translate(550px);
+  transition: 0.4s ease-in-out;
+}
+#circle4:hover {
+  transform: rotate(-200deg) translate(550px) scale(1.2);
 }
 #circle5 {
   transform: rotate(-220deg) translate(550px);
+  transition: 0.4s ease-in-out;
+}
+#circle5:hover {
+  transform: rotate(-220deg) translate(550px) scale(1.2);
 }
 #circle6 {
   transform: rotate(-240deg) translate(550px);
+  transition: 0.4s ease-in-out;
 }
+#circle6:hover {
+  transform: rotate(-240deg) translate(550px) scale(1.2);
+}
+
 
 span {
   display: inline-block;
   transform: rotate(-180deg);
+}
+
+.pizzabutton:hover {
+  background-color: orangered;
+  transform: scale(1.2);
+}
+
+/* .pizza_img {
+  animation: loadingPizza 2s ease-in-out;
+  animation-fill-mode: forwards;
+} */
+
+@keyframes loadingPizza {
+  0%   {opacity: 0; transform: translate(-100%)}
+  100% {opacity: 1; transform: translate(0px) rotate(360deg);}
 }
