@@ -99,6 +99,7 @@ header {
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  width: 40%;
 }
 
 #pizza_right {
@@ -242,6 +243,16 @@ header {
   height: 350px;
   background-color: rgb(142, 38, 0);
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#orderBox{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 25px;
 }
 #myBasket section {
   display: flex;
@@ -405,4 +416,8 @@ span {
 @keyframes loadingPizza {
   0%   {opacity: 0; transform: translate(-100%)}
   100% {opacity: 1; transform: translate(0px) rotate(360deg);}
+}
+
+#basketImg{
+width: 50px;
 }

@@ -11,6 +11,7 @@ let pizzaArray = [];
 
 const appState = {
   pizza: [],
+  selectedIndex: null,
 };
 
 
@@ -59,11 +60,10 @@ const createButtons = () => {
 
 
 const pizzaLoader = (a) => {
-  let pizzaContainer = document.getElementById("pizzaContainer");
-  pizzaContainer.innerHTML = "";
+  
   let pizzaBox = document.createElement("div");
   pizzaBox.className = "pizzabox";
-  pizzaContainer.append(pizzaBox);
+  document.getElementById('root').append(pizzaBox);
   let pizzaLeft = document.createElement("div");
   pizzaLeft.id = "pizza_left";
   let pizzaRight = document.createElement("div");
@@ -82,7 +82,7 @@ const pizzaLoader = (a) => {
   pizzaRight.append(pizzaImg);
   pizzaImg.style.animation ="loadingPizza 2s ease-in-out";
   pizzaImg.style.animationFillMode = "forwards"
-
+  appState.selectedIndex = a
   let pizzaName = document.createElement("h1");
   pizzaName.id = "pizza_name"
   pizzaLeft.append(pizzaName);
@@ -104,18 +104,49 @@ const pizzaLoader = (a) => {
     if(document.getElementById("amount_input").value == 0 || document.getElementById("amount_input").value === undefined){
       alert("Nem jó értéket adtál meg!")
     } else {
+      
+      let collector = document.createElement('div')
+      collector.id = "orderBox"
+      document.getElementById("orders").append(collector)
       let rendeles = document.getElementById("pizza_name").innerText + ", darabszám: " + document.getElementById("amount_input").value + "\n"
-      document.getElementById("orders").innerHTML += rendeles;
-      document.getElementById("orders").innerHTML += `<br>`
+      collector.innerHTML += rendeles;
+     
 
       let pizza = {
         "name" : document.getElementById("pizza_name").innerText,
         "amount" : document.getElementById("amount_input").value
+
       }
 
       pizzaArray.push(pizza);
       document.getElementById("amount_input").value = ""
-
+      let choosenPizzaImg = document.createElement("img")
+      collector.append(choosenPizzaImg)
+      choosenPizzaImg.id = "basketImg"
+      switch(document.getElementById("pizza_name").innerText){
+        case "Margherita" : 
+       choosenPizzaImg.src = `http://127.0.0.1:3000${appState.pizza[0].picture}`
+       break;
+        case "Prosciutto di Parma" : 
+       choosenPizzaImg.src = `http://127.0.0.1:3000${appState.pizza[1].picture}`
+       break;
+        case "Calabrese" : 
+       choosenPizzaImg.src =` http://127.0.0.1:3000${appState.pizza[2].picture}`
+       break;
+        case "Tonno e Cipolle" : 
+       choosenPizzaImg.src = `http://127.0.0.1:3000${appState.pizza[3].picture}`
+       break;
+        case "Amalfitana" : 
+       choosenPizzaImg.src = `http://127.0.0.1:3000${appState.pizza[4].picture}`
+       break;
+        case "Quattro Formaggi" : 
+       choosenPizzaImg.src = `http://127.0.0.1:3000${appState.pizza[5].picture}`
+       break;
+        case "Prosciutto e Funghi" : 
+       choosenPizzaImg.src =`http://127.0.0.1:3000${appState.pizza[6].picture}`
+       break;
+   }
+    
     }
   })
 };
